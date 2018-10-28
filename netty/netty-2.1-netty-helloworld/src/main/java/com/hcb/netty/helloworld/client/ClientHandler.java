@@ -1,7 +1,5 @@
-package com.hcb.netty.helloworld.server;
+package com.hcb.netty.helloworld.client;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.*;
 
 /**
@@ -9,7 +7,7 @@ import org.jboss.netty.channel.*;
  * @date 21:00  2018/10/25
  * @description
  */
-public class ServerHandler extends SimpleChannelHandler {
+public class ClientHandler extends SimpleChannelHandler {
 
 
     @Override
@@ -35,7 +33,7 @@ public class ServerHandler extends SimpleChannelHandler {
         ctx.getChannel().write(channelBuffer);
         */
         //有StringEnCoder
-        ctx.getChannel().write("hi, i'm server");
+        ctx.getChannel().write("hi, i'm client");
 
         //3、抛出异常，看exceptionCaught 方法
         //System.out.println(1/0);
