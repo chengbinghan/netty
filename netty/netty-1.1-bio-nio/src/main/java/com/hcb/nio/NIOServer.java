@@ -8,6 +8,7 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
+import java.util.Set;
 
 
 public class NIOServer {
@@ -47,6 +48,10 @@ public class NIOServer {
 			// 当注册的事件到达时，方法返回；否则,该方法会一直阻塞
 			selector.select();
 			// 获得selector中选中的项的迭代器，选中的项为注册的事件
+			 Set<SelectionKey> selectionKeys = selector.selectedKeys();
+			for (SelectionKey selectionKey : selectionKeys) {
+				System.out.println(selectionKey);
+			}
 			Iterator<?> ite = this.selector.selectedKeys().iterator();
 			while (ite.hasNext()) {
 				SelectionKey key = (SelectionKey) ite.next();
